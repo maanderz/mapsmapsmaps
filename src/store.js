@@ -5,7 +5,13 @@ import axios from "axios";
 Vue.use(Vuex);
 
 const state = {
-  map: ''
+  map: '',
+  currentLocation: {  
+    center: { lat: 45.508, lng: -73.587 },
+    markers: [],
+    places: [],
+    currentPlace: null
+  }
 }
 
 const mutations = {
@@ -22,12 +28,16 @@ const actions = {
     
     .get(`https://api.hatchways.io/assessment/students`)
     .then(res => (commit('updateMapImage', res.data.students[0].pic)))  
-  }
+  },
 }
 
 const getters = {
   displayMap: (state) => {
     return state.map
+  },
+
+  displayJSMap: (state) => {
+    return state.currentLocation;
   }
 }
 

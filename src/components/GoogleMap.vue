@@ -1,37 +1,38 @@
 <template>
   <div>
     <gmap-map
-      :center="center"
+      :center="$store.getters.displayJSMap.center"
       :zoom="12"
       style="width:100vw;  height: 100vh;"
     >
-      <gmap-marker
+      <!-- <gmap-marker
         :key="index"
         v-for="(m, index) in markers"
         :position="m.position"
         @click="center=m.position"
-      ></gmap-marker>
-    </gmap-map>
-  </div>
+      ></gmap-marker> -->
+    </gmap-map> 
+  </div> 
 </template>
 
 <script>
 export default {
-  name: "GoogleMap",
-  data() {
-    return {
-      // default to Montreal to keep it simple
-      // change this to whatever makes sense
-      center: { lat: 45.508, lng: -73.587 },
-      markers: [],
-      places: [],
-      currentPlace: null
-    };
-  },
 
-  create() {
-    this.geolocate();
-  },
+//   name: "GoogleMap",
+//   data() {
+    // return {
+    //   // default to Montreal to keep it simple
+    //   // change this to whatever makes sense
+    //   center: { lat: 45.508, lng: -73.587 },
+    //   markers: [],
+    //   places: [],
+    //   currentPlace: null
+//     };
+//   },
+
+//   create() {
+//     this.geolocate();
+//   },
 
 //   methods: {
 //     // receives a place object via the autocomplete component
