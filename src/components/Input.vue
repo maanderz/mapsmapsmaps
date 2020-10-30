@@ -18,12 +18,18 @@
 .search-form {
   display: flex; 
   margin: 2rem auto;
-  border: 1px solid black;
   width: 75%;
+  z-index: 2;
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -50%)
 }
 
 .address-input {
     display: block;
+    font-size: 24px;
+    font-style: italic;
     padding: 1rem 0 1rem 1rem;
     border-radius: 0;
     border: none;
@@ -31,8 +37,9 @@
 }
 
 .search-btn {
-  background: transparent;
+  background: white;
   border: none;
+  padding: 1rem;
 }
 
 .button-size {
