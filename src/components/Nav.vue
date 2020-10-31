@@ -21,7 +21,7 @@
             <li class="menuitem-wrapper">
                 <div class="icon-holder">
                     <a href="#" class="menu-item">
-                        <img class="button-size" src="../assets/pin.png" alt="pin"/>
+                        <img class="button-size" src="../assets/save.png" alt="save"/>
                     </a>
                 </div>
                 <svg class="circle-holder">
@@ -32,7 +32,7 @@
             <li class="menuitem-wrapper">
                 <div class="icon-holder">
                     <a href="#" class="menu-item">
-                        <img class="button-size" src="../assets/save.png" alt="save"/>
+                        <img class="button-size" src="../assets/pin.png" alt="pin"/>
                     </a>
                 </div>
                 <svg class="circle-holder">
