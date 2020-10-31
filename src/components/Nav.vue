@@ -8,59 +8,37 @@
         </button>
         <ul class="menu"  v-bind:class="{ active: !isActive }" >
             <li class="menuitem-wrapper">
-            <div class="icon-holder">
-                <a href="#" class="menu-item">
-                    <i class="material-icons">home</i>
-                </a>
-            </div>
-            <svg class="circle-holder">
-                <circle r="88" cx="50%" cy="50%" fill="none">
-                </circle>
-            </svg>
+                <div class="icon-holder">
+                    <a href="#" class="menu-item">
+                        <i class="material-icons">home</i>
+                    </a>
+                </div>
+                <svg class="circle-holder">
+                    <circle r="88" cx="50%" cy="50%" fill="none">
+                    </circle>
+                </svg>
             </li>
             <li class="menuitem-wrapper">
-            <div class="icon-holder">
-                <a href="#" class="menu-item">
-                    <i class="material-icons">face</i>
-                </a>
-            </div>
-            <svg class="circle-holder">
-                <circle r="88" cx="50%" cy="50%" fill="none">
-                </circle>
-            </svg>
+                <div class="icon-holder">
+                    <a href="#" class="menu-item">
+                        <i class="material-icons">face</i>
+                    </a>
+                </div>
+                <svg class="circle-holder">
+                    <circle r="88" cx="50%" cy="50%" fill="none">
+                    </circle>
+                </svg>
             </li>
             <li class="menuitem-wrapper">
-            <div class="icon-holder">
-                <a href="#" class="menu-item">
-                    <i class="material-icons">android</i>
-                </a>
-            </div>
-            <svg class="circle-holder">
-                <circle r="88" cx="50%" cy="50%" fill="none">
-                </circle>
-            </svg>
-            </li>
-            <li class="menuitem-wrapper">
-            <div class="icon-holder">
-                <a href="#" class="menu-item">
-                    <i class="material-icons">shopping_cart</i>
-                </a>
-            </div>
-            <svg class="circle-holder">
-                <circle r="88" cx="50%" cy="50%" fill="none">
-                </circle>
-            </svg>
-            </li>
-            <li class="menuitem-wrapper">
-            <div class="icon-holder">
-                <a href="#" class="menu-item">
-                    <i class="material-icons">room</i>
-                </a>
-            </div>
-            <svg class="circle-holder">
-                <circle r="88" cx="50%" cy="50%" fill="none">
-                </circle>
-            </svg>
+                <div class="icon-holder">
+                    <a href="#" class="menu-item">
+                        <i class="material-icons">android</i>
+                    </a>
+                </div>
+                <svg class="circle-holder">
+                    <circle r="88" cx="50%" cy="50%" fill="none">
+                    </circle>
+                </svg>
             </li>
         </ul>
     </nav>
@@ -80,10 +58,6 @@ export default {
     $spin-speed: 0.7s;
     $color-collection: ('#2980b9', '#c0392b', '#1abc9c', '#f39c12', '#8e44ad');
     $degFactor: 71.5;
-
-    html {
-        font-size: 16px;
-    }
 
     body {
         box-sizing: border-box;
@@ -142,48 +116,25 @@ export default {
         padding: 1rem;
         border-radius: 100%;
         transform: scale(1,1);
-        
-        i {
-        display: inline-block;
-        vertical-align: middle;
-        line-height: 1.2;
-        }
     }
     
-    &.active {
-        transform: scale(1);
-        // animation: bouncein linear 0.1s forwards 1;
-    }
-    }
-
-    .icon-holder {
-    position: relative;
-    z-index: 1;
-    display: inline-block;
-    width: 4rem;
-    height: 100%;
+        &.active {
+            transform: scale(1);
+            animation: bouncein linear 0.1s forwards 1;
+        }
     }
 
     .circle-holder {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    z-index: 0;
-    display: none;
-    width: 24rem;
-    height: 24rem;
-    margin: -12rem;
-    padding: 1rem;
-    transform: rotate(-90deg);
-    
-    circle {
-        width: 100%;
-        height: 100%;
-        stroke-width: 4rem;
-        stroke-dasharray: 560;
-        stroke-dashoffset: 560;
-        stroke-linecap: round;
-    }
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 0;
+        display: none;
+        width: 24rem;
+        height: 24rem;
+        margin: -12rem;
+        padding: 1rem;
+        transform: rotate(-90deg);
     }
 
     .menu-btn {
@@ -206,7 +157,7 @@ export default {
         outline: none;
         cursor: pointer;
         font-size: 0;
-    
+
         i {
             position: relative;
             z-index: 11;
@@ -223,146 +174,23 @@ export default {
         }
     }
 
-    .clicked {
-    &.menu-btn {
-        animation: buttonactive ease-in 0.2s forwards 1;
-
-        i:first-child {
-        animation: top-down ease-in 0.2s forwards 1;
-        }
-        i:nth-child(2) {
-        animation: middle ease-in 0.01s forwards 1;
-        }
-        i:nth-child(3) {
-        animation: down-top ease-in 0.2s forwards 1;
-        }
-    }
-    
-    .ripple {
-        animation: ripples ease-in 0.35s forwards 1;
-    }
-    }
-
-    .ripple {
-    position: absolute;
-    top: -1rem;
-    left: -1rem;
-    z-index: 10;
-    display: block;
-    width: 6rem;
-    height: 6rem;
-    transform: scale(0.5);
-    opacity: 0;
-    border: 2rem solid white;
-    border-radius: 100%;
-    }
-
     @for $i from 0 to length($color-collection) {
-    .menu li:nth-child(#{$i+1}) {
-        transform: rotate(#{$i*$degFactor}deg);
-        
-        a {
-        transform: rotate(-#{$i*$degFactor}deg);
-        background: unquote(nth($color-collection, $i+1));
+        .menu li:nth-child(#{$i+1}) {
+            transform: rotate(#{$i*$degFactor}deg);
+            
+            a {
+            transform: rotate(-#{$i*$degFactor}deg);
+            background: unquote(nth($color-collection, $i+1));
+            }
+            circle {stroke: unquote(nth($color-collection, $i+1));}
         }
-        circle {stroke: unquote(nth($color-collection, $i+1));}
-    }
-    
-    .bg-#{$i} {background: unquote(nth($color-collection, $i+1));}
-    }
 
-    @keyframes spin {
-    0% {
-        transform: rotate(0deg);
-        opacity: 1;
-    }
-    80% {
-        transform: rotate(360deg);
-        opacity: 1;
-    }
-    100% {
-        transform: rotate(360deg);
-        opacity: 0;
-    }
-    }
+        .menu li:nth-child(3) {
+            transform: rotate(-75deg);
 
-    @keyframes dash {
-    0% {
-        stroke-dashoffset: 560;
-        stroke-width: 4rem;
+            a {
+                transform: rotate(90deg);
+            }
+        }
     }
-    80% {
-        stroke-dashoffset: 0;
-        stroke-width: 4rem;
-        opacity: 1;
-    }
-    100% {
-        stroke-dashoffset: 0;
-        stroke-width: 6rem;
-        opacity: 0;
-    }
-    }
-
-    @keyframes buttonactive {
-    0% {
-        background: white;
-        transform: rotate(0deg);
-    }
-    100% {
-        background: lighten(#34495e, 15%);
-        transform: rotate(-90deg);
-    }
-    }
-
-    @keyframes middle {
-    0% {
-        opacity: 1;
-        left: 0;
-    }
-    100% {
-        opacity: 0;
-        left: -4rem;
-    }
-    }
-
-    @keyframes top-down {
-    0% {
-        top: 0;
-        transform: rotate(0);
-    }
-    100% {
-        top: 0.35rem;
-        transform: rotate(-45deg);
-    }
-    }
-
-    @keyframes down-top {
-    0% {
-        top: 0;
-        transform: rotate(0);
-    }
-    100% {
-        top: -0.4rem;
-        transform: rotate(45deg);
-    }
-    }
-
-    @keyframes ripples {
-    0%   {
-        opacity: 1.0;
-        transform: scale(0.5);
-        border-width: 3rem;
-    }
-    100% {
-        opacity: 0.5;
-        transform: scale(1);
-        border-width: 0rem;
-    }
-    }
-
-    @keyframes bouncein {
-    to {
-        transform: scale(1);
-    }
-}
 </style>
