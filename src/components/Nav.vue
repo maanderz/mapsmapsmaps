@@ -10,7 +10,7 @@
             <li class="menuitem-wrapper">
                 <div class="icon-holder">
                     <a href="#" class="menu-item">
-                        <i class="material-icons">home</i>
+                        <img class="button-size" src="../assets/search.png" alt="search"/>
                     </a>
                 </div>
                 <svg class="circle-holder">
@@ -21,7 +21,7 @@
             <li class="menuitem-wrapper">
                 <div class="icon-holder">
                     <a href="#" class="menu-item">
-                        <i class="material-icons">face</i>
+                        <img class="button-size" src="../assets/pin.png" alt="pin"/>
                     </a>
                 </div>
                 <svg class="circle-holder">
@@ -32,7 +32,7 @@
             <li class="menuitem-wrapper">
                 <div class="icon-holder">
                     <a href="#" class="menu-item">
-                        <i class="material-icons">android</i>
+                        <img class="button-size" src="../assets/save.png" alt="save"/>
                     </a>
                 </div>
                 <svg class="circle-holder">
@@ -175,6 +175,9 @@ export default {
             a {
                 transform: rotate(-#{$i*$degFactor}deg);
                 background: unquote(nth($color-collection, $i+1));
+                display: flex;
+                justify-content: center;
+                align-items: center;
             }
             circle {stroke: unquote(nth($color-collection, $i+1));}
         }
@@ -183,7 +186,7 @@ export default {
             transform: rotate(-75deg);
 
             a {
-                transform: rotate(90deg);
+                transform: rotate(77deg);
             }
         }
     }

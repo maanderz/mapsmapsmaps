@@ -27,7 +27,7 @@
   }
 </script>
 
-<style>
+<style lang="scss">
 .search-form {
   display: flex; 
   margin: 2rem auto;
