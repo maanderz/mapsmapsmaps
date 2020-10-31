@@ -70,7 +70,7 @@ export default {
 
     .menu-wrapper {
         position: absolute;
-        top: 50%;
+        bottom: -25%;
         left: 50%;
         display: block;
         width: 30rem;
@@ -88,7 +88,7 @@ export default {
     
         li {
             position: absolute;
-            top: 50%;
+            top: 45%;
             left: 50%;
             display: inline-block;
             width: 4rem;
@@ -99,11 +99,6 @@ export default {
             
             &.spin {
                 z-index: 5;
-            .icon-holder {animation: spin $spin-speed linear forwards;}
-            .circle-holder {
-                display: block;
-                circle {animation: dash $spin-speed linear forwards;}
-            }
         }
     }
     
@@ -112,7 +107,7 @@ export default {
         display: inline-block;
         width: 4rem;
         height: 4rem;
-        margin-top: 4.5rem;
+        margin-top: 3rem;
         padding: 1rem;
         border-radius: 100%;
         transform: scale(1,1);
@@ -120,7 +115,6 @@ export default {
     
         &.active {
             transform: scale(1);
-            animation: bouncein linear 0.1s forwards 1;
         }
     }
 
@@ -179,8 +173,8 @@ export default {
             transform: rotate(#{$i*$degFactor}deg);
             
             a {
-            transform: rotate(-#{$i*$degFactor}deg);
-            background: unquote(nth($color-collection, $i+1));
+                transform: rotate(-#{$i*$degFactor}deg);
+                background: unquote(nth($color-collection, $i+1));
             }
             circle {stroke: unquote(nth($color-collection, $i+1));}
         }
