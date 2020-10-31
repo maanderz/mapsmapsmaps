@@ -6,6 +6,7 @@
     <button class="search-btn" type="submit"> 
       <img class="button-size" src="../assets/search.png" />
     </button>
+    
   </form>
 </template>
 
@@ -19,7 +20,8 @@
 
     methods: {
       handleSubmit(){
-        this.$store.commit('updateAddress', this.address)
+        this.$store.commit('updateAddress', this.address);
+        this.$store.dispatch('fetchAddress', this.address);
       }
     }
   }

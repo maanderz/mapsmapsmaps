@@ -22,6 +22,12 @@ const mutations = {
 
   updateAddress (state, address) {
     state.address = address; 
+  },
+
+  updateGeoPoints (state, points){
+    console.log(state.currentLocation, points)
+    state.currentLocation.center.lat = points.lat; 
+    state.currentLocation.center.lng = points.lng;     
   }
 
 }
@@ -33,8 +39,17 @@ const actions = {
     // .then(res => commit('updateMapImage', res.config.url))        
     
     .get(`https://api.hatchways.io/assessment/students`)
-    .then(res => (commit('updateMapImage', res.data.students[0].pic)))  
+    .then(res => (commit('updateMapImage', res.data.students[0].pic)) )  
   },
+
+  fetchAddress({ commit }){
+    console.log('123',state.address)
+    axios
+    .get(`https://maps.googleapis.com/maps/api/geocode/json?address=${state.address}&key=${process.env.VUE_APP_KEY}`)
+    .then(res => (commit('updateGeoPoints', res.data.results[0].geometry.location)))
+    .catch(err => console.log(err))
+  }
+
 }
 
 const getters = {
