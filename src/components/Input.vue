@@ -1,16 +1,27 @@
 <template>
-  <form class="search-form">
-    <input class="address-input" placeholder="Address...">
-    <button class="search-btn" type="submit" > 
+  <form class="search-form" @submit.prevent="handleSubmit">
+    <input class="address-input" 
+      :placeholder="$store.getters.displayAddress" 
+      v-model="address">
+    <button class="search-btn" type="submit"> 
       <img class="button-size" src="../assets/search.png" />
     </button>
   </form>
 </template>
 
 <script>  
-
   export default {
-    
+    data(){
+      return {
+        address: ''
+      }
+    },
+
+    methods: {
+      handleSubmit(){
+        this.$store.commit('updateAddress', this.address)
+      }
+    }
   }
 </script>
 

@@ -11,13 +11,19 @@ const state = {
     markers: [],
     places: [],
     currentPlace: null
-  }
+  },
+  address: 'Address...'
 }
 
 const mutations = {
   updateMapImage (state, image){
     state.map = image; 
+  },
+
+  updateAddress (state, address) {
+    state.address = address; 
   }
+
 }
 
 const actions = {
@@ -38,7 +44,12 @@ const getters = {
 
   displayJSMap: (state) => {
     return state.currentLocation;
+  },
+
+  displayAddress: (state) => {
+    return state.address;
   }
+
 }
 
 export default new Vuex.Store({
