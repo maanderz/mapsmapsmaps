@@ -39,7 +39,8 @@ const actions = {
     // .then(res => commit('updateMapImage', res.config.url))        
     
     .get(`https://api.hatchways.io/assessment/students`)
-    .then(res => (commit('updateMapImage', res.data.students[0].pic)) )  
+    .then(res => (commit('updateMapImage', res.data.students[0].pic)) )
+    .catch(err => console.log(err))  
   },
 
   fetchAddress({ commit }){
