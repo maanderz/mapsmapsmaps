@@ -62,7 +62,7 @@ export default {
 
 <style lang="scss">
     $spin-speed: 0.7s;
-    $color-collection: ('#2980b9', '#c0392b', '#1abc9c', '#f39c12', '#8e44ad');
+    $color-collection: ('#2980b9', '#ec6433', '#1abc9c', '#f39c12', '#8e44ad');
     $degFactor: 71.5;
 
     body {

@@ -27,7 +27,7 @@ methods: {
         padding: 2rem;
         position: absolute;
         width: 100%;
-        background: #c0392b; 
+        background: #ec6433; 
         text-align: center;
     }
 
