@@ -53,12 +53,20 @@ const actions = {
     .catch(err => console.log(err))
   },
 
-  addToRecent(){
-    // axios.get(baseURL).then(res => console.log(res))
-    const article = { address: state.address };
-    const headers = {"Access-Control-Allow-Origin": "*"}
-    axios.post(baseURL, article, { headers })
-  }
+  // sendAddress(){
+  //   const headers = {
+  //     "Access-Control-Allow-Origin": "*",
+  //     'Content-Type': 'application/json;charset=UTF-8' 
+  //   };
+  //   axios.post(baseURL, {
+  //     address: state.address,
+  //   }, { headers })
+  //   .then((response) => {
+  //     console.log(response);
+  //   }, (error) => {
+  //     console.log(error);
+  //   });
+  // }
 
 }
 

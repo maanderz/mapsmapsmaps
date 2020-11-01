@@ -20,7 +20,7 @@
             </li>
             <li class="menuitem-wrapper">
                 <div class="icon-holder">
-                    <a href="#" class="menu-item">
+                    <a href="#" class="menu-item" @click="save">
                         <img class="button-size" src="../assets/save.png" alt="save"/>
                     </a>
                 </div>
@@ -29,8 +29,8 @@
                     </circle>
                 </svg>
             </li>
-            <li class="menuitem-wrapper">
-                <div class="icon-holder">
+            <li class="menuitem-wrapper" >
+                <div class="icon-holder" >
                     <a href="#" class="menu-item">
                         <img class="button-size" src="../assets/pin.png" alt="pin"/>
                     </a>
@@ -49,6 +49,11 @@ export default {
     data () {
         return {
             isActive: true
+        }
+    },
+    methods: {
+        save(){
+            this.$store.dispatch('sendAddress')
         }
     }
 }
