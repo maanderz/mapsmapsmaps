@@ -42,6 +42,10 @@ export default {
 		overflow: hidden;
 	}
 
+	#app {
+		font-family: 'Source Sans Pro', sans-serif;
+	}
+
 	.input-section{
 		display: flex;
 		flex-direction: column;
