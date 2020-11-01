@@ -19,7 +19,7 @@
                 </svg>
             </li>
             <li class="menuitem-wrapper">
-                <div class="icon-holder">
+                <div class="icon-holder" @click="openSave">
                     <a href="#" class="menu-item" >
                         <img class="button-size" src="../assets/save.png" alt="save"/>
                     </a>
@@ -49,6 +49,12 @@ export default {
     data () {
         return {
             isActive: true
+        }
+    },
+    methods: {
+        openSave(){
+            let val = !this.$store.state.openSave;
+            this.$store.commit('changeOpenSave', val)
         }
     }
 }

@@ -15,7 +15,7 @@ const state = {
     currentPlace: null
   },
   address: 'Address...',
-  abc: true
+  openSave: false
 }
 
 const mutations = {
@@ -31,6 +31,10 @@ const mutations = {
     console.log(state.currentLocation, points)
     state.currentLocation.center.lat = points.lat; 
     state.currentLocation.center.lng = points.lng;     
+  },
+
+  changeOpenSave (state, val){
+    state.openSave = val;
   }
 
 }
