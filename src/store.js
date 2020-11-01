@@ -14,7 +14,8 @@ const state = {
     places: [],
     currentPlace: null
   },
-  address: 'Address...'
+  address: 'Address...',
+  abc: true
 }
 
 const mutations = {
@@ -53,20 +54,20 @@ const actions = {
     .catch(err => console.log(err))
   },
 
-  // sendAddress(){
-  //   const headers = {
-  //     "Access-Control-Allow-Origin": "*",
-  //     'Content-Type': 'application/json;charset=UTF-8' 
-  //   };
-  //   axios.post(baseURL, {
-  //     address: state.address,
-  //   }, { headers })
-  //   .then((response) => {
-  //     console.log(response);
-  //   }, (error) => {
-  //     console.log(error);
-  //   });
-  // }
+  sendAddress(){
+    const headers = {
+      "Access-Control-Allow-Origin": "*",
+      'Content-Type': 'application/json;charset=UTF-8' 
+    };
+    axios.post(baseURL, {
+      address: state.address,
+    }, { headers })
+    .then((response) => {
+      console.log(response);
+    }, (error) => {
+      console.log(error);
+    });
+  }
 
 }
 
@@ -81,6 +82,10 @@ const getters = {
 
   displayAddress: (state) => {
     return state.address;
+  },
+
+  openSave: (state) => {
+    return state.openSave
   }
 
 }
