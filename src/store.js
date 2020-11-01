@@ -4,6 +4,8 @@ import axios from "axios";
 
 Vue.use(Vuex);
 
+const baseURL = 'http://localhost:3000/';
+
 const state = {
   map: '',
   currentLocation: {  
@@ -49,6 +51,13 @@ const actions = {
     .get(`https://maps.googleapis.com/maps/api/geocode/json?address=${state.address}&key=${process.env.VUE_APP_KEY}`)
     .then(res => (commit('updateGeoPoints', res.data.results[0].geometry.location)))
     .catch(err => console.log(err))
+  },
+
+  addToRecent(){
+    // axios.get(baseURL).then(res => console.log(res))
+    const article = { address: state.address };
+    const headers = {"Access-Control-Allow-Origin": "*"}
+    axios.post(baseURL, article, { headers })
   }
 
 }

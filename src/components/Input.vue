@@ -21,7 +21,7 @@
     methods: {
       handleSubmit(){
         this.$store.commit('updateAddress', this.address);
-        this.$store.dispatch('fetchAddress', this.address);
+        // this.$store.dispatch('fetchAddress', this.address);
       }
     }
   }
