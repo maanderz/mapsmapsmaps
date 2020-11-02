@@ -1,12 +1,13 @@
 <template>
   <form class="search-form" @submit.prevent="handleSubmit">
     <input class="address-input" 
-      :placeholder="$store.getters.displayAddress" 
+      value="userAddress" 
+      placeholder="Enter an address..." 
       v-model="address">
     <button class="search-btn" type="submit"> 
       <img class="button-size" src="../assets/search.png" />
     </button>
-    
+    {{ this.$store.getters.displayAddress }}
   </form>
 </template>
 
@@ -14,7 +15,7 @@
   export default {
     data(){
       return {
-        address: ''
+        address: '',
       }
     },
 
@@ -22,10 +23,15 @@
       handleSubmit(){
         this.$store.commit('updateAddress', this.address);
         this.$store.commit('updateRecent', this.address);
-
         this.$store.dispatch('fetchAddress');
       }
-    }
+    },
+
+    computed: {
+      userAddress: function() {
+        return this.$store.getters.displayAddress;
+      }
+    },
   }
 </script>
 

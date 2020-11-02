@@ -56,17 +56,16 @@ export default {
             let save = this.$store.state.openSave;
             let show = this.$store.state.showSaved; 
             let recent = this.$store.state.openRecent;
-
             // make sure recent isn't opened
             if (recent){
                 this.$store.commit('changeRecent', false)
             } 
 
             if (!save && show){
-                return this.$store.commit('changeShowSaved', false);
+                this.$store.commit('changeShowSaved', false);
             } else {
                 let val = !this.$store.state.openSave;
-                return this.$store.commit('changeOpenSave', val)
+                this.$store.commit('changeOpenSave', val)
             }
         },
         openRecent(){
@@ -82,6 +81,8 @@ export default {
             return this.$store.commit('changeRecent', show)
         },
         focusSearch(){
+            this.$store.commit('updateAddress', '');
+            
             let show = this.$store.state.openRecent;
             let saved = this.$store.state.openSave;
             let showSaved = this.$store.state.showSaved;
@@ -96,7 +97,7 @@ export default {
                 this.$store.commit('changeRecent', false)
             } 
             
-        }
+        },
     }
 }
 </script>

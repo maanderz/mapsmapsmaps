@@ -14,12 +14,12 @@ const state = {
     places: [],
     currentPlace: null
   },
-  address: 'Address...',
+  address: '',
   openSave: false,
   showSaved: false,
   savedAddresses: [],
   openRecent: false,
-  recentList: []
+  recentList: [],
 }
 
 const mutations = {
@@ -126,7 +126,6 @@ const getters = {
   showRecentList: (state) => {
     return state.recentList
   }
-
 }
 
 export default new Vuex.Store({
