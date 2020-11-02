@@ -88,6 +88,9 @@
   .display {
     width: 100%;
     padding: 1rem;
-    font-weight: 300;
+    font-weight: 600;
+    font-size: 24px;
+    font-style: italic;
+    text-transform: capitalize;
   }
 </style>
