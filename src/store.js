@@ -54,9 +54,6 @@ const mutations = {
   },
 
   updateRecent(state, address){
-
-    console.log('hitting')
-
     if (address === '') {
       alert('Please enter an address')
     } else {  

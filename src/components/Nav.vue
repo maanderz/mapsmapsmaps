@@ -8,7 +8,7 @@
         </button>
         <ul class="menu"  v-bind:class="{ active: !isActive }" >
             <li class="menuitem-wrapper">
-                <div class="icon-holder">
+                <div class="icon-holder" @click="focusSearch">
                     <a href="#" class="menu-item">
                         <img class="button-size" src="../assets/search.png" alt="search"/>
                     </a>
@@ -80,6 +80,22 @@ export default {
                 this.$store.commit('changeShowSaved', false)
             }
             return this.$store.commit('changeRecent', show)
+        },
+        focusSearch(){
+            let show = this.$store.state.openRecent;
+            let saved = this.$store.state.openSave;
+            let showSaved = this.$store.state.showSaved;
+
+            if (saved) {
+                this.$store.commit('changeOpenSave', false)
+            } 
+            if (showSaved) {
+                this.$store.commit('changeShowSaved', false)
+            }
+            if (show){
+                this.$store.commit('changeRecent', false)
+            } 
+            
         }
     }
 }
