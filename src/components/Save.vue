@@ -1,5 +1,5 @@
 <template>
-    <div class="save-box" >
+    <div class="save-box">
         <h1 class="title"> Save this address? </h1>
         <div>
             <button @click="save" class="button first"> Save </button>
@@ -10,19 +10,28 @@
 
 <script>
 export default {
-methods: {
-        save(){
-            this.$store.dispatch('sendAddress')
-        },
-        show(){
-            let val = !this.$store.state.showSaved;
-            this.$store.commit('changeShowSaved', val);
-
-            let hide = false; 
-            this.$store.commit('changeOpenSave', hide);
+     data () {
+        return {
+            isActive: true
+        }
+    },
+    methods: {
+            save(){
+                this.$store.dispatch('sendAddress')
+            },
+            show(){
+                let save = this.$store.state.openSave;
+                let show = this.$store.state.showSaved;
+                // let val = !this.$store.state.showSaved;
+                // this.$store.commit('changeShowSaved', val);
+                // When 'Show Saved Addresses' is clicked
+                if (save && !show){
+                    this.$store.commit('changeShowSaved', true);
+                    this.$store.commit('changeOpenSave', false);
+                }
+            }
         }
     }
-}
 </script>
 
 <style>
@@ -68,6 +77,10 @@ methods: {
         .first {
             margin-bottom: 1rem;
         }
+    }
+
+    .hide {
+        display: none;
     }
 
 

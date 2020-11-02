@@ -41,7 +41,6 @@ const mutations = {
   changeShowSaved (state, val){
     state.showSaved = val;
   }
-
 }
 
 const actions = {

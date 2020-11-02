@@ -19,7 +19,7 @@ import Map from "./components/Map"
 import Input from "./components/Input"
 import Nav from "./components/Nav"
 import Save from "./components/Save"
-import ShowSaved from "./components/ShowSaved";
+import ShowSaved from "./components/ShowSaved"
 
 export default {
   name: 'App',
