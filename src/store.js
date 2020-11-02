@@ -16,7 +16,8 @@ const state = {
   },
   address: 'Address...',
   openSave: false,
-  showSaved: false
+  showSaved: false,
+  savedAddresses: []
 }
 
 const mutations = {
@@ -40,6 +41,10 @@ const mutations = {
 
   changeShowSaved (state, val){
     state.showSaved = val;
+  },
+
+  updateSavedList (state, data){
+    data.forEach(datum => state.savedAddresses.push(datum))
   }
 }
 
@@ -77,8 +82,8 @@ const actions = {
     });
   },
 
-  fetchAddresses(){
-    axios.get(baseURL).then(res => console.log(res))
+  fetchAddresses({ commit }){
+    axios.get(baseURL).then(res => commit('updateSavedList', res.data));
   }
 
 }
@@ -98,6 +103,10 @@ const getters = {
 
   openSave: (state) => {
     return state.openSave
+  },
+
+  showSavedList: (state) => {
+    return state.savedAddresses
   }
 
 }

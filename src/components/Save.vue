@@ -55,6 +55,7 @@ export default {
     }
 
     .title {
+        font-weight: 500;
         margin-top: 0;
         color: white;
     }
@@ -85,10 +86,5 @@ export default {
             margin-bottom: 1rem;
         }
     }
-
-    .hide {
-        display: none;
-    }
-
 
 </style>
