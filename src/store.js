@@ -17,7 +17,8 @@ const state = {
   address: 'Address...',
   openSave: false,
   showSaved: false,
-  savedAddresses: []
+  savedAddresses: [],
+  openRecent: false
 }
 
 const mutations = {

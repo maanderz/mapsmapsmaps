@@ -6,6 +6,7 @@
 		<Input />
 		<Save v-if="openSave"/>
 		<ShowSaved v-if="showSaved"/>
+		<Recent v-if="openRecent" />
 	</div>
 	<Nav />
   </div>
@@ -20,6 +21,7 @@ import Input from "./components/Input"
 import Nav from "./components/Nav"
 import Save from "./components/Save"
 import ShowSaved from "./components/ShowSaved"
+import Recent from "./components/RecentSearches"
 
 export default {
   name: 'App',
@@ -28,7 +30,8 @@ export default {
 	Input,
 	Nav,
 	Save,
-	ShowSaved
+	ShowSaved,
+	Recent
 	// GoogleMap
   },
   computed: {
@@ -37,6 +40,9 @@ export default {
 	},
 	showSaved(){
 		return this.$store.state.showSaved;
+	},
+	openRecent(){
+		return this.$store.state.openRecent;
 	}
   }
   
