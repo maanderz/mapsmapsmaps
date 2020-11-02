@@ -18,7 +18,7 @@ export default {
     },
     methods: {
             save() {
-                if ( this.$store.state.address === 'Address...') {
+                if ( this.$store.state.address === '') {
                     alert('Please enter an address')
                 } else {
                     this.$store.dispatch('sendAddress')
