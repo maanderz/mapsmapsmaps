@@ -12,7 +12,7 @@
       }
     },
     created() {
-      this.$store.dispatch('fetchImage');
+      return this.$store.dispatch('fetchImage');
     }
   }
 </script>

@@ -75,7 +75,6 @@ const actions = {
   },
 
   fetchAddress({ commit }){
-    console.log('123',state.address)
     axios
     .get(`https://maps.googleapis.com/maps/api/geocode/json?address=${state.address}&key=${process.env.VUE_APP_KEY}`)
     .then(res => (commit('updateGeoPoints', res.data.results[0].geometry.location)))
