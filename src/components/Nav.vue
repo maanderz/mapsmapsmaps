@@ -29,7 +29,7 @@
                     </circle>
                 </svg>
             </li>
-            <li class="menuitem-wrapper" >
+            <li class="menuitem-wrapper" @click="openRecent">
                 <div class="icon-holder" >
                     <a href="#" class="menu-item">
                         <img class="button-size" src="../assets/pin.png" alt="pin"/>
@@ -55,12 +55,31 @@ export default {
         openSave(){
             let save = this.$store.state.openSave;
             let show = this.$store.state.showSaved; 
+            let recent = this.$store.state.openRecent;
+
+            // make sure recent isn't opened
+            if (recent){
+                this.$store.commit('changeRecent', false)
+            }
+
             if (!save && show){
-                this.$store.commit('changeShowSaved', false);
+                return this.$store.commit('changeShowSaved', false);
             } else {
                 let val = !this.$store.state.openSave;
-                this.$store.commit('changeOpenSave', val)
+                return this.$store.commit('changeOpenSave', val)
             }
+        },
+        openRecent(){
+            let show = !this.$store.state.openRecent;
+            let saved = this.$store.state.openSave;
+            let showSaved = this.$store.state.showSaved;
+
+            if (saved){
+                this.$store.commit('changeOpenSave', false)
+            } else if (showSaved){
+                this.$store.commit('changeShowSaved', false)
+            }
+            return this.$store.commit('changeRecent', show)
         }
     }
 }

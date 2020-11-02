@@ -45,7 +45,11 @@ const mutations = {
   },
 
   updateSavedList (state, data){
-    data.forEach(datum => state.savedAddresses.push(datum))
+    data.forEach(datum => state.savedAddresses.unshift(datum))
+  },
+
+  changeRecent(state, val){
+    state.openRecent = val
   }
 }
 
