@@ -15,7 +15,8 @@ const state = {
     currentPlace: null
   },
   address: 'Address...',
-  openSave: false
+  openSave: false,
+  showSaved: false
 }
 
 const mutations = {
@@ -35,6 +36,10 @@ const mutations = {
 
   changeOpenSave (state, val){
     state.openSave = val;
+  },
+
+  changeShowSaved (state, val){
+    state.showSaved = val;
   }
 
 }

@@ -3,7 +3,7 @@
         <h1 class="title"> Save this address? </h1>
         <div>
             <button @click="save" class="button first"> Save </button>
-            <button class="button"> Show Saved Addresses </button>
+            <button class="button" @click="show"> Show Saved Addresses </button>
         </div>
     </div>
 </template>
@@ -13,6 +13,13 @@ export default {
 methods: {
         save(){
             this.$store.dispatch('sendAddress')
+        },
+        show(){
+            let val = !this.$store.state.showSaved;
+            this.$store.commit('changeShowSaved', val);
+
+            let hide = false; 
+            this.$store.commit('changeOpenSave', hide);
         }
     }
 }

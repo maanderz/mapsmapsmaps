@@ -5,6 +5,7 @@
 	<div class="input-section">
 		<Input />
 		<Save v-if="openSave"/>
+		<ShowSaved v-if="showSaved"/>
 	</div>
 	<Nav />
   </div>
@@ -18,6 +19,7 @@ import Map from "./components/Map"
 import Input from "./components/Input"
 import Nav from "./components/Nav"
 import Save from "./components/Save"
+import ShowSaved from "./components/ShowSaved";
 
 export default {
   name: 'App',
@@ -25,12 +27,16 @@ export default {
 	Map,
 	Input,
 	Nav,
-	Save
+	Save,
+	ShowSaved
 	// GoogleMap
   },
   computed: {
 	openSave(){
 		return this.$store.state.openSave;
+	},
+	showSaved(){
+		return this.$store.state.showSaved;
 	}
   }
   
