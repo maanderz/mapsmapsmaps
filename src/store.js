@@ -75,6 +75,10 @@ const actions = {
     }, (error) => {
       console.log(error);
     });
+  },
+
+  fetchAddresses(){
+    axios.get(baseURL).then(res => console.log(res))
   }
 
 }

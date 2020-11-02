@@ -12,23 +12,30 @@
 export default {
      data () {
         return {
-            isActive: true
+            isActive: true,
+            address: ''
         }
     },
     methods: {
-            save(){
-                this.$store.dispatch('sendAddress')
+            save() {
+                if ( this.$store.state.address === 'Address...') {
+                    alert('Please enter an address')
+                } else {
+                    this.$store.dispatch('sendAddress')
+                }
+                this.$store.commit('changeOpenSave', false); 
             },
             show(){
                 let save = this.$store.state.openSave;
                 let show = this.$store.state.showSaved;
-                // let val = !this.$store.state.showSaved;
-                // this.$store.commit('changeShowSaved', val);
+                
                 // When 'Show Saved Addresses' is clicked
                 if (save && !show){
                     this.$store.commit('changeShowSaved', true);
                     this.$store.commit('changeOpenSave', false);
                 }
+
+                this.$store.dispatch('fetchAddresses');
             }
         }
     }

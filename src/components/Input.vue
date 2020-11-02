@@ -41,7 +41,7 @@
 
 .address-input {
     display: block;
-    font-size: 24px;
+    font-size: 18px;
     font-style: italic;
     padding: 1rem 0 1rem 1rem;
     border-radius: 0;

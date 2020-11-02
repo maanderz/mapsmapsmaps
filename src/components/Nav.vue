@@ -53,8 +53,6 @@ export default {
     },
     methods: {
         openSave(){
-            // let val = !this.$store.state.openSave;
-            // this.$store.commit('changeOpenSave', val)
             let save = this.$store.state.openSave;
             let show = this.$store.state.showSaved; 
             if (!save && show){
