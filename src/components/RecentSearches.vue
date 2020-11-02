@@ -1,6 +1,11 @@
 <template>
    <div class="recent-box">
         <h1 class="title"> Recent Searches </h1>
+        <li v-for="(item,index) in $store.getters.showRecentList" 
+            :key="index" 
+            class="eachItem">
+            {{ item }}
+        </li>
     </div>
 </template>
 

@@ -18,7 +18,8 @@ const state = {
   openSave: false,
   showSaved: false,
   savedAddresses: [],
-  openRecent: false
+  openRecent: false,
+  recentList: []
 }
 
 const mutations = {
@@ -50,6 +51,18 @@ const mutations = {
 
   changeRecent(state, val){
     state.openRecent = val
+  },
+
+  updateRecent(state, address){
+
+    console.log('hitting')
+
+    if (address === '') {
+      alert('Please enter an address')
+    } else {  
+      
+      state.recentList.unshift(address);
+    }
   }
 }
 
@@ -112,6 +125,10 @@ const getters = {
 
   showSavedList: (state) => {
     return state.savedAddresses
+  },
+
+  showRecentList: (state) => {
+    return state.recentList
   }
 
 }

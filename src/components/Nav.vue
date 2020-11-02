@@ -48,7 +48,7 @@
 export default {
     data () {
         return {
-            isActive: true
+            isActive: true,
         }
     },
     methods: {
@@ -60,7 +60,7 @@ export default {
             // make sure recent isn't opened
             if (recent){
                 this.$store.commit('changeRecent', false)
-            }
+            } 
 
             if (!save && show){
                 return this.$store.commit('changeShowSaved', false);
