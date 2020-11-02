@@ -2,7 +2,7 @@
    <div class="recent-box">
         <h1 class="title"> Recent Searches </h1>
         <ul id="list">
-            <li v-for="(item,index) in $store.getters.showRecentList" 
+            <li v-for="(item,index) in $store.getters.showRecentList.slice(0,3)" 
                 :key="index" 
                 class="eachItem">
                 {{ item }}
