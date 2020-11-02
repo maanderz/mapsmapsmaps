@@ -32,7 +32,6 @@ const mutations = {
   },
 
   updateGeoPoints (state, points){
-    console.log(state.currentLocation, points)
     state.currentLocation.center.lat = points.lat; 
     state.currentLocation.center.lng = points.lng;     
   },

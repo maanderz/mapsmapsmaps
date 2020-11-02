@@ -2,7 +2,7 @@
     <div class="save-box" >
         <h1 class="title"> Saved Addresses </h1>
         <ul id="list">
-        <li v-for="item in $store.getters.showSavedList.slice(0,3)" 
+        <li v-for="item in $store.getters.showSavedList.slice(0,4)" 
             :key="item._id" 
             class="eachItem">
             {{ item.address }}
