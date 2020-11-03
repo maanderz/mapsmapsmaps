@@ -18,3 +18,4 @@ describe('Mounted App', () => {
     });
   });
 });
+
