@@ -4,6 +4,7 @@ const express = require('express')
 const serveStatic = require('serve-static')
 const path = require('path')
 const bodyParser= require('body-parser');
+
 const cors = require("cors");
 const MongoClient = require('mongodb').MongoClient;
 
@@ -21,6 +22,8 @@ app.listen(port)
 console.log(`app is listening on port: ${port}`)
 
 MongoClient.connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true, 
+    useCreateIndex: true,
     useUnifiedTopology: true
   })
   .then(client => {
