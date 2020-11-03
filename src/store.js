@@ -27,7 +27,6 @@ const mutations = {
   },
 
   updateAddress (state, address) {
-    console.log(baseURL)
     state.address = address; 
   },
 
@@ -45,6 +44,7 @@ const mutations = {
   },
 
   updateSavedList (state, data){
+    console.log(data)
     data.forEach(datum => state.savedAddresses.unshift(datum))
   },
 
@@ -75,7 +75,8 @@ const actions = {
       "Access-Control-Allow-Origin": "*",
       'Content-Type': 'application/json;charset=UTF-8' 
     };
-    axios.post(baseURL, {
+
+    axios.post(`${baseURL}/address`, {
       address: state.address,
     }, { headers })
     .then((response) => {
@@ -86,7 +87,7 @@ const actions = {
   },
 
   fetchAddresses({ commit }){
-    axios.get(baseURL).then(res => commit('updateSavedList', res.data));
+    axios.get(`${baseURL}/addresses`).then(res => commit('updateSavedList', res.data));
   }
 
 }
