@@ -93,4 +93,10 @@
     font-style: italic;
     text-transform: capitalize;
   }
+
+  @media (max-width: 767.98px){
+    .address-input {
+        width: 80%;
+    }    
+  }
 </style>
