@@ -31,6 +31,7 @@ app.get('/addresses', (req, res) => {
 
 app.post('/address', (req, res) => {
     const add = req.body.address
+    console.log(pool)
     pool.query('INSERT INTO addresses (address) VALUES ($1)', [ add ], (error, results) => {
         if (error) {
           throw error
