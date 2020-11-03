@@ -5,15 +5,16 @@ const serveStatic = require('serve-static')
 const path = require('path')
 const bodyParser= require('body-parser');
 const {pool} = require('./config')
-
 const cors = require("cors");
-const MongoClient = require('mongodb').MongoClient;
-
 const app = express()
+const isProduction = process.env.NODE_ENV === 'production'
+const origin = {
+  origin: isProduction ? 'https://localhost:8080' : '*',
+}
 
 app.use(bodyParser.json()); 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors());
+app.use(cors(origin));
 
 //here we are configuring dist to serve app files
 app.use('/', serveStatic(path.join(__dirname, '/dist')))
