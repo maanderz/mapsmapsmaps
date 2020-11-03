@@ -3,8 +3,7 @@ import Vuex from "vuex";
 import axios from "axios";
 
 Vue.use(Vuex);
-
-const baseURL = 'http://localhost:3000/';
+const baseURL = process.env.VUE_APP_BASEURL
 
 const state = {
   map: '',
@@ -28,6 +27,7 @@ const mutations = {
   },
 
   updateAddress (state, address) {
+    console.log(baseURL)
     state.address = address; 
   },
 
