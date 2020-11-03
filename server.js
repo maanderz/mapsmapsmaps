@@ -9,7 +9,7 @@ const cors = require("cors");
 const app = express()
 const isProduction = process.env.NODE_ENV === 'production'
 const origin = {
-  origin: isProduction ? 'https://localhost:8080' : '*',
+  origin: isProduction ? '*' : 'https://localhost:8080',
 }
 
 app.use(bodyParser.json()); 
