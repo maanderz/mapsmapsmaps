@@ -44,7 +44,6 @@ const mutations = {
   },
 
   updateSavedList (state, data){
-    console.log(data)
     data.forEach(datum => state.savedAddresses.unshift(datum))
   },
 
