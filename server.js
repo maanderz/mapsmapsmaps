@@ -20,7 +20,7 @@ const port = process.env.PORT || 8080
 app.listen(port)
 console.log(`app is listening on port: ${port}`)
 
-MongoClient.connect(process.env.VUE_APP_CONNECTION, {
+MongoClient.connect(process.env.MONGODB_URI, {
     useUnifiedTopology: true
   })
   .then(client => {
