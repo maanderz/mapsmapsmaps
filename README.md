@@ -13,6 +13,11 @@ npm install
 
 ### Compiles and hot-reloads for development
 
+#### Create dist folder with index.html to initialize app
+```
+npm run build
+```
+
 #### To run Vue
 ```
 npm run serve
