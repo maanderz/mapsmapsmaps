@@ -33,7 +33,8 @@ app.get('/addresses', (req, res) => {
     })
 });  
 
-app.post('/address', (req, res) => {
+// app.post('/address', (req, res) => {
+app.post('https://sleepy-chamber-28831.herokuapp.com/address', (req, res) => {
     const add = req.body.address
     console.log(pool)
     pool.query('INSERT INTO addresses (address) VALUES ($1)', [ add ], (error, results) => {
