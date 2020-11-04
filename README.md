@@ -2,6 +2,11 @@
 An application to search and save addresses. Built with Vue, Express, and MongoDB. A demonstration project. 
 
 ## Project setup
+
+Git clone project into your repository.
+
+Create a .env file and fill in key value pairs according to .env.development.
+
 ```
 npm install
 ```
