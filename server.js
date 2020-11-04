@@ -9,7 +9,7 @@ const cors = require("cors");
 const app = express()
 const isProduction = process.env.NODE_ENV === 'production'
 const origin = {
-  origin: isProduction ? '*' : 'https://localhost:8080',
+    origin: isProduction ? 'https//localhost:8080' : '*',
 }
 
 app.use(bodyParser.json()); 
@@ -33,8 +33,7 @@ app.get('/addresses', (req, res) => {
     })
 });  
 
-// app.post('/address', (req, res) => {
-app.post('https://sleepy-chamber-28831.herokuapp.com/address', (req, res) => {
+app.post('/address', (req, res) => {
     const add = req.body.address
     console.log(pool)
     pool.query('INSERT INTO addresses (address) VALUES ($1)', [ add ], (error, results) => {
