@@ -18,10 +18,10 @@ app.use(cors(origin));
 
 //here we are configuring dist to serve app files
 // app.use('/', serveStatic(path.join(__dirname, '/dist')))
-if(process.env.NODE_ENV === 'production'){
+// if(process.env.NODE_ENV === 'production'){
     //set static folder
-    app.use('/', serveStatic(path.join(__dirname, '/dist')));
-}
+app.use('/', serveStatic(path.join(__dirname, '/dist')));
+// }
 
 app.get('/addresses', (req, res) => {
     console.log('hitting')

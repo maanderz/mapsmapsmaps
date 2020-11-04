@@ -70,14 +70,9 @@ const actions = {
   },
 
   sendAddress(){
-    const headers = {
-      "Access-Control-Allow-Origin": "*",
-      'Content-Type': 'application/json;charset=UTF-8' 
-    };
-
     axios.post(`${baseURL}/address`, {
       address: state.address,
-    }, { headers })
+    })
     .then((response) => {
       console.log(response);
     }, (error) => {
