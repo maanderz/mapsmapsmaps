@@ -25,7 +25,9 @@ const state = {
 const mutations = {
   addToSave(state) {
     localStorage.setItem('store', JSON.stringify(state));
-    if (state.savedAddresses.includes(this.state.address)){
+
+    let current = state.savedAddresses
+    if (current.includes(this.state.address)){
       alert(`You've saved this address already!`)
     } else {
       state.savedAddresses.push(this.state.address);
