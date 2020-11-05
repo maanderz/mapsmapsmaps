@@ -3,10 +3,23 @@ An application to search and save addresses. Built with Vue, Express, and MongoD
 
 ## Project setup
 ```
+Git clone project into your repository.
+```
+
+```
+Create a .env file and fill in key value pairs according to .env.development.
+```
+
+```
 npm install
 ```
 
 ### Compiles and hot-reloads for development
+
+#### Create dist folder with index.html to initialize app
+```
+npm run build
+```
 
 #### To run Vue
 ```
