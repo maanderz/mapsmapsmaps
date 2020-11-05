@@ -1,6 +1,6 @@
 <template>
     <nav class="menu-wrapper">
-        <button class="menu-btn" has-ripple="true" @click="isActive = !isActive">
+        <button class="menu-btn" has-ripple="true" @click="closeAll">
             <i></i>
             <i></i>
             <i></i>
@@ -52,6 +52,27 @@ export default {
         }
     },
     methods: {
+        closeAll(){
+            console.log('123')
+            if (this.isActive){
+                return this.isActive = false;
+            } else {
+                let show = this.$store.state.openRecent;
+                let saved = this.$store.state.openSave;
+                let showSaved = this.$store.state.showSaved;
+
+                if (saved) {
+                    this.$store.commit('changeOpenSave', false)
+                } 
+                if (showSaved) {
+                    this.$store.commit('changeShowSaved', false)
+                }
+                if (show){
+                    this.$store.commit('changeRecent', false)
+                } 
+                return this.isActive = true;
+            }
+        },
         openSave(){
             let save = this.$store.state.openSave;
             let show = this.$store.state.showSaved; 
@@ -82,7 +103,8 @@ export default {
         },
         focusSearch(){
             this.$store.commit('updateAddress', '');
-            
+            this.isActive = true;
+
             let show = this.$store.state.openRecent;
             let saved = this.$store.state.openSave;
             let showSaved = this.$store.state.showSaved;
