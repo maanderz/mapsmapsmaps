@@ -36,6 +36,10 @@ const mutations = {
   initialiseStore(state) {
     if (localStorage.getItem('store')) {
       state.recentList = [];
+      state.address = '';
+      state.openSave = false; 
+      state.showSaved = false;
+      state.openRecent = false;
     }
   },
 
