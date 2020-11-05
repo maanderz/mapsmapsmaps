@@ -26,19 +26,18 @@ const mutations = {
   addToSave(state) {
     localStorage.setItem('store', JSON.stringify(state));
 
-    let current = state.savedAddresses
-    if (current.includes(this.state.address)){
+    if (state.savedAddresses.includes(this.state.address)){
       alert(`You've saved this address already!`)
     } else {
       state.savedAddresses.push(this.state.address);
     }    
   },
+
   initialiseStore(state) {
     if (localStorage.getItem('store')) {
       state.recentList = [];
     }
   },
-
 
   updateMapImage (state, image){
     state.map = image; 
@@ -81,8 +80,11 @@ const mutations = {
 
 const actions = {
   fetchAddress({ commit }){
+
+    const address = this.state.address;
+  
     axios
-    .get(`https://maps.googleapis.com/maps/api/geocode/json?address=${state.address}&key=${process.env.VUE_APP_KEY}`)
+    .get(`https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${process.env.VUE_APP_KEY}`)
     .then(res => (commit('updateGeoPoints', res.data.results[0].geometry.location)))
     .catch(err => console.log(err))
   }
