@@ -17,22 +17,24 @@ const state = {
   address: '',
   openSave: false,
   showSaved: false,
-  savedAddresses: [],
+  savedAddresses: ['123'],
   openRecent: false,
-  recentList: ['stuff'],
+  recentList: [],
 
   agreedToPrivacy: false
 }
 
 const mutations = {
   agreePrivacyPolicy(state) {
-    localStorage.setItem('agreedToPrivacy', JSON.stringify(state));
+    localStorage.setItem('store', JSON.stringify(state));
     state.agreedToPrivacy = true;
   },
   initialiseStore(state) {
-    if (localStorage.getItem('agreedToPrivacy')) {
-      let obj = JSON.parse(localStorage.getItem('agreedToPrivacy'));
-      console.log('123',obj)
+    if (localStorage.getItem('store')) {
+      let obj = JSON.parse(localStorage.getItem('store'));
+      console.log('123',obj.savedAddresses)
+
+      state.recentList = [];
       state.agreedToPrivacy = true;
     }
   },
