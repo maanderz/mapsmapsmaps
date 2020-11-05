@@ -21,14 +21,15 @@ export default {
                 if ( this.$store.state.address === '') {
                     alert('Please enter an address')
                 } else {
+                    this.$store.commit('agreePrivacyPolicy');
                     this.$store.dispatch('sendAddress')
                 }
                 this.$store.commit('changeOpenSave', false); 
             },
             show(){
                 let save = this.$store.state.openSave;
-                let show = this.$store.state.showSaved;
-                
+                let show = this.$store.state.showSaved; 
+
                 // When 'Show Saved Addresses' is clicked
                 if (save && !show){
                     this.$store.commit('changeShowSaved', true);

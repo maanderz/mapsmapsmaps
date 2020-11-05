@@ -13,6 +13,7 @@ Vue.use(VueGoogleMaps, {
 
 new Vue({
   store,
+  beforeCreate() { this.$store.commit('initialiseStore')},
   render: h => h(App),
 }).$mount('#app')
 

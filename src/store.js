@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import axios from "axios";
+import VuexPersist from 'vuex-persist';
 
 Vue.use(Vuex);
 const baseURL = process.env.VUE_APP_BASEURL
@@ -18,10 +19,25 @@ const state = {
   showSaved: false,
   savedAddresses: [],
   openRecent: false,
-  recentList: [],
+  recentList: ['stuff'],
+
+  agreedToPrivacy: false
 }
 
 const mutations = {
+  agreePrivacyPolicy(state) {
+    localStorage.setItem('agreedToPrivacy', JSON.stringify(state));
+    state.agreedToPrivacy = true;
+  },
+  initialiseStore(state) {
+    if (localStorage.getItem('agreedToPrivacy')) {
+      let obj = JSON.parse(localStorage.getItem('agreedToPrivacy'));
+      console.log('123',obj)
+      state.agreedToPrivacy = true;
+    }
+  },
+
+
   updateMapImage (state, image){
     state.map = image; 
   },
@@ -109,11 +125,22 @@ const getters = {
 
   showRecentList: (state) => {
     return state.recentList
+  },
+
+  abc: (state) => {
+    return state.agreedToPrivacy;
   }
 }
+
+const vuexLocalStorage = new VuexPersist({
+  key: 'vuex', // The key to store the state on in the storage provider.
+  storage: window.localStorage, // or window.sessionStorage or localForage
+})
 
 export default new Vuex.Store({
   state,
   getters,
-  actions, mutations
+  actions, 
+  mutations,
+  plugins: [vuexLocalStorage.plugin]
 })

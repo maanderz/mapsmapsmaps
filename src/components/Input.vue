@@ -1,6 +1,6 @@
 <template>
   <form class="search-form" @submit.prevent="handleSubmit">
-    <div class="display"> {{ this.$store.getters.displayAddress }} </div>
+    <div>{{ $store.getters.abc }}</div>
     <input class="address-input" 
       value="userAddress"
       placeholder="Enter an address..." 
