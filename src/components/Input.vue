@@ -1,6 +1,5 @@
 <template>
   <form class="search-form" @submit.prevent="handleSubmit">
-    <div>{{ $store.getters.abc }}</div>
     <input class="address-input" 
       value="userAddress"
       placeholder="Enter an address..." 

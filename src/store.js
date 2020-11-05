@@ -4,7 +4,6 @@ import axios from "axios";
 import VuexPersist from 'vuex-persist';
 
 Vue.use(Vuex);
-const baseURL = process.env.VUE_APP_BASEURL
 
 const state = {
   map: '',
@@ -17,25 +16,24 @@ const state = {
   address: '',
   openSave: false,
   showSaved: false,
-  savedAddresses: ['123'],
+  savedAddresses: [],
   openRecent: false,
   recentList: [],
 
-  agreedToPrivacy: false
 }
 
 const mutations = {
-  agreePrivacyPolicy(state) {
+  addToSave(state) {
     localStorage.setItem('store', JSON.stringify(state));
-    state.agreedToPrivacy = true;
+    if (state.savedAddresses.includes(this.state.address)){
+      alert(`You've saved this address already!`)
+    } else {
+      state.savedAddresses.push(this.state.address);
+    }    
   },
   initialiseStore(state) {
     if (localStorage.getItem('store')) {
-      let obj = JSON.parse(localStorage.getItem('store'));
-      console.log('123',obj.savedAddresses)
-
       state.recentList = [];
-      state.agreedToPrivacy = true;
     }
   },
 
@@ -85,23 +83,7 @@ const actions = {
     .get(`https://maps.googleapis.com/maps/api/geocode/json?address=${state.address}&key=${process.env.VUE_APP_KEY}`)
     .then(res => (commit('updateGeoPoints', res.data.results[0].geometry.location)))
     .catch(err => console.log(err))
-  },
-
-  sendAddress(){
-    axios.post(`${baseURL}/address`, {
-      address: state.address,
-    })
-    .then((response) => {
-      console.log(response);
-    }, (error) => {
-      console.log(error);
-    });
-  },
-
-  fetchAddresses({ commit }){
-    axios.get(`${baseURL}/addresses`).then(res => commit('updateSavedList', res.data));
   }
-
 }
 
 const getters = {
@@ -127,10 +109,6 @@ const getters = {
 
   showRecentList: (state) => {
     return state.recentList
-  },
-
-  abc: (state) => {
-    return state.agreedToPrivacy;
   }
 }
 

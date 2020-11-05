@@ -21,11 +21,12 @@ export default {
                 if ( this.$store.state.address === '') {
                     alert('Please enter an address')
                 } else {
-                    this.$store.commit('agreePrivacyPolicy');
-                    this.$store.dispatch('sendAddress')
+                    this.$store.commit('addToSave');
+                    // this.$store.dispatch('sendAddress')
                 }
                 this.$store.commit('changeOpenSave', false); 
             },
+            
             show(){
                 let save = this.$store.state.openSave;
                 let show = this.$store.state.showSaved; 
@@ -36,7 +37,7 @@ export default {
                     this.$store.commit('changeOpenSave', false);
                 }
 
-                this.$store.dispatch('fetchAddresses');
+                // this.$store.dispatch('fetchAddresses');
             }
         }
     }

@@ -2,10 +2,10 @@
     <div class="save-box" >
         <h1 class="title"> Saved Addresses </h1>
         <ul id="list">
-        <li v-for="item in $store.getters.showSavedList.slice(0,3)" 
-            :key="item._id" 
+        <li v-for="(item, index) in $store.getters.showSavedList.slice(0,3)" 
+            :key="index" 
             class="eachItem">
-            {{ item.address }}
+            {{ item }}
         </li>
         </ul>
     </div>
